@@ -13,12 +13,12 @@ const LastDiv = document.getElementById('LastDiv')
 // Main page trending title
 async function Trending() {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=trending&language=en&apiKey=${API_KEY}&pageSize=1`);
+        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=technology&articlesCount=1`);
         const data = await response.json();
         console.log(data)
 
         // get the data from api
-        const articles = data.articles;
+        const articles = data.articles.results;
         console.log(articles)
 
         //  append content to the heading 
@@ -35,11 +35,11 @@ async function Trending() {
 // Main page trending News
 async function MainNews() {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=malappuram&language=en&apiKey=${API_KEY}&pageSize=1`);
+        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=kannur&articlesCount=1`);
         const data = await response.json();
 
         // get the data from api
-        const articles = data.articles;
+        const articles = data.articles.results;
         console.log(articles)
 
         // append content to the main news
@@ -61,7 +61,7 @@ async function MainNews() {
             article.appendChild(h3); 
 
             const img = document.createElement('img')
-            img.src = articleData.urlToImage;
+            img.src = articleData.image;
             img.classList.add('img-fluid')
             article.appendChild(img); 
         }
@@ -74,23 +74,23 @@ async function MainNews() {
 // BottomDiv page sports News
 async function SportsNews() {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=sports&language=en&apiKey=${API_KEY}&pageSize=3`);
+        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=sports&lang=eng&articlesCount=3`);
         const data = await response.json();
 
         // get the data from api
-        const articles = data.articles;
+        const articles = data.articles.results;
         console.log(articles)
 
         // append content to the main news
         for (let i = 0; i < articles.length; i++) {
-            const articleData = articles[i];
+            const Data = articles[i];
             
             // creating a Article Tag and append to the BottomDiv
             const article = document.createElement('article');
             bottomDiv.appendChild(article);
             
             const img = document.createElement('img')
-            img.src = articleData.urlToImage;
+            img.src = Data.image; // Fix: Use Data instead of articleData
             img.classList.add('img-fluid')
             article.appendChild(img); 
             
@@ -100,7 +100,7 @@ async function SportsNews() {
             article.appendChild(h4);
 
             const h3 = document.createElement('h3');
-            h3.textContent = articleData.title; 
+            h3.textContent = Data.title; // Fix: Use Data instead of articleData
             h3.classList.add('TitleText'); 
             article.appendChild(h3);
             
@@ -112,13 +112,14 @@ async function SportsNews() {
 }
 
 
+
 async function StockUpdate() {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=international&language=en&apiKey=${API_KEY}&pageSize=5`);
+        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=world%20news&lang=eng&articlesCount=5`);
         const data = await response.json();
 
         // get the data from api
-        const articles = data.articles;
+        const articles = data.articles.results;
         console.log(articles)
 
         // append content to the main news
@@ -132,9 +133,10 @@ async function StockUpdate() {
             console.log(ArtBox2)
 
             const img = document.createElement('img')
-            img.src = articleData.urlToImage;
+            img.src = articleData.image;
             img.classList.add('ArtImage')
             article.appendChild(img); 
+        
 
             const div = document.createElement('div')
             article.appendChild(div)
@@ -158,12 +160,12 @@ async function StockUpdate() {
 
 async function TechHeading() {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=technology&language=en&apiKey=${API_KEY}&pageSize=1`);
+        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=indian%20politics&lang=eng&articlesCount=1`);
         const data = await response.json();
         console.log(data)
 
         // get the data from api
-        const articles = data.articles;
+        const articles = data.articles.results;
         console.log(articles)
 
         //  append content to the heading 
@@ -180,12 +182,12 @@ async function TechHeading() {
 
 async function TechnologyFinal() {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=technology&language=en&apiKey=${API_KEY}&pageSize=6`);
+        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=indian%20politics&lang=eng&articlesCount=6`);
         const data = await response.json();
         console.log(data)
 
         // get the data from api
-        const articles = data.articles;
+        const articles = data.articles.results;
         console.log(articles)
 
         // append content to the main news
@@ -198,7 +200,7 @@ async function TechnologyFinal() {
             console.log(LastDiv)
 
             const img = document.createElement('img')
-            img.src = articleData.urlToImage;
+            img.src = articleData.image; 
             img.classList.add('card-img-top')
             article.appendChild(img); 
 
@@ -212,7 +214,7 @@ async function TechnologyFinal() {
             div.appendChild(h5);
 
             const p = document.createElement('p');
-            p.textContent = articleData.title; 
+            p.textContent = articleData.title;
             p.classList.add('card-text'); 
             div.appendChild(p);
 
