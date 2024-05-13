@@ -13,13 +13,13 @@ const LastDiv = document.getElementById('LastDiv')
 // Main page trending title
 async function Trending() {
     try {
-        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=technology&articlesCount=1`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=india&lang=en&max=1&apikey=${API_KEY}`);
         const data = await response.json();
         console.log(data)
 
         // get the data from api
-        const articles = data.articles.results;
-        console.log(articles)
+        const articles = data.articles;
+        console.log(articles);
 
         //  append content to the heading 
         for (let i = 0; i < articles.length; i++) {
@@ -35,12 +35,13 @@ async function Trending() {
 // Main page trending News
 async function MainNews() {
     try {
-        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=kannur&articlesCount=1`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=india&lang=en&max=1&apikey=${API_KEY}`);
         const data = await response.json();
+        console.log(data)
 
         // get the data from api
-        const articles = data.articles.results;
-        console.log(articles)
+        const articles = data.articles;
+        console.log(articles);
 
         // append content to the main news
         for (let i = 0; i < articles.length; i++) {
@@ -74,12 +75,13 @@ async function MainNews() {
 // BottomDiv page sports News
 async function SportsNews() {
     try {
-        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=sports&lang=eng&articlesCount=3`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=ipl&lang=en&max=3&apikey=${API_KEY}`);
         const data = await response.json();
+        console.log(data)
 
         // get the data from api
-        const articles = data.articles.results;
-        console.log(articles)
+        const articles = data.articles;
+        console.log(articles);
 
         // append content to the main news
         for (let i = 0; i < articles.length; i++) {
@@ -115,12 +117,13 @@ async function SportsNews() {
 
 async function StockUpdate() {
     try {
-        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=world%20news&lang=eng&articlesCount=5`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=uk&lang=en&max=5&apikey=${API_KEY}`);
         const data = await response.json();
+        console.log(data)
 
         // get the data from api
-        const articles = data.articles.results;
-        console.log(articles)
+        const articles = data.articles;
+        console.log(articles);
 
         // append content to the main news
         for (let i = 0; i < articles.length; i++) {
@@ -160,13 +163,13 @@ async function StockUpdate() {
 
 async function TechHeading() {
     try {
-        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=indian%20politics&lang=eng&articlesCount=1`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=election2024&lang=en&max=1&apikey=${API_KEY}`);
         const data = await response.json();
         console.log(data)
 
         // get the data from api
-        const articles = data.articles.results;
-        console.log(articles)
+        const articles = data.articles;
+        console.log(articles);
 
         //  append content to the heading 
         for (let i = 0; i < articles.length; i++) {
@@ -182,13 +185,13 @@ async function TechHeading() {
 
 async function TechnologyFinal() {
     try {
-        const response = await fetch(`https://eventregistry.org/api/v1/article/getArticles?apiKey=${API_KEY}&keyword=indian%20politics&lang=eng&articlesCount=6`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=election%20india&lang=en&max=6&apikey=${API_KEY}`);
         const data = await response.json();
         console.log(data)
 
         // get the data from api
-        const articles = data.articles.results;
-        console.log(articles)
+        const articles = data.articles;
+        console.log(articles);
 
         // append content to the main news
         for (let i = 0; i < articles.length; i++) {
