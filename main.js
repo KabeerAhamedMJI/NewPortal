@@ -1,5 +1,5 @@
 // apikey import from env file
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = 'd5f71f1b88bcdb5972f77baa88b7ce9b';
 
 // Call id's from HTML to Javascript
 const trendingSpan = document.getElementById('trending')
